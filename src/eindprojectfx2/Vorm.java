@@ -1,35 +1,66 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package eindprojectfx2;
 
 /**
- *
+ * De klasse vorm is de superklasse van de verschillende vormen, hierin staan de x en y-coordinaten, de grootte en de snelheid.
  * @author Vermeulen
+ * @see Vierkant
+ * @see Rechthoek
+ * @see Driehoek
+ * @see Cirkel
  */
 public class Vorm {
-    public int x = (int) (400 * Math.random() + 25);
-    public int y = (int) (400 * Math.random() + 25);
-    public int dx = 3, dy = 2;
+    /**
+     * publieke variabelen moeten toegankelijk zijn voor de subklassen.
+     */
+    public int x = (int) (1005 * Math.random() + 25);
+    public int y = (int) (630 * Math.random() + 25);
+    public int w = 20;
+    public int h = 20;
     public boolean visible;
+
+    private int dx = (int) (2 * Math.random() + 1);
+    private int dy = (int) (1 * Math.random() + 1);
+
+
     
-    public Vorm(){//bij aanmaak op onzichtbaar zetten
+    /**
+     * Initialiseert de vorm en zet hem op onzichtbaar
+     */
+    public Vorm(){
         this.visible = false;
     }
-    public boolean getVisible(){//zichtbaarheid opvragen
+
+    /**
+     * Levert de zichtbaarheid van de vorm
+     * @return de zichtbaarheid van de vorm
+     */
+    public boolean getVisible(){
         return visible;
     }
+    
+    /**
+     * Stelt de positie in op een nieuwe willekeurige plek
+     */
+    public void scrambleLocation(){
+        x = (int) (1024 * Math.random() + 25);
+        y = (int) (649 * Math.random() + 25);
+    }
 
-    public void setVisible(boolean visible){//zichtbaarheid wijzigen
+    /**
+     * Stelt de zichtbaarheid in
+     * @param visible de zichtbaarheid(true/false) van de vorm
+     */
+    public void setVisible(boolean visible){
         this.visible = visible;
     }
     
-    public void move(){//verplaatsen van de vorm (begrensd door de uitersten van het canvas)
-        if (x +dx <= 1 || x + dx + 25 >= 1050 )
+    /**
+     * Verplaatst de vorm binnen de grenzen van het canvas
+     */
+    public void move(){
+        if (x +dx <= 20 || x + dx + 25 >= 1030 )
             dx = -dx;
-        if ( y + dy <= 1 || y + dy + 25 >= 675)
+        if ( y + dy <= 20 || y + dy + 25 >= 655)
             dy = -dy;
 
         x += dx; y += dy;

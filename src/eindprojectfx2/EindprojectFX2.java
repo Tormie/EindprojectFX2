@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package eindprojectfx2;
 
 import javafx.application.Application;
@@ -15,8 +10,11 @@ import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 
 /**
- *
+ * De klasse EindProjectFX2 is de applicatieklasse van dit project.
+ * De klasse initialiseert de pane en scene en instantieert een EindProject2.
  * @author Vermeulen
+ * @version 1.0
+ * @see EindProject2
  */
 public class EindprojectFX2 extends Application {
     
@@ -32,7 +30,11 @@ public class EindprojectFX2 extends Application {
 		primaryStage.show();
 	}
 	
-	public static void main(String[] args) {
+    /**
+     * De main methode is de methode waarin de applicatie wordt uitgevoerd.
+     * @param args argumenten waarmee de applicatie wordt gestart.
+     */
+    public static void main(String[] args) {
 		launch(args);
 
 	}
